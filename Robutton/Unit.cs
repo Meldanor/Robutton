@@ -5,8 +5,18 @@ using System.Text;
 
 namespace Robutton
 {
-    public abstract class Unit
+    public class Unit
     {
+        public Unit()
+        {
+        }
+
+        public Unit(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
+
         private int x;
         public int X
         {
@@ -30,6 +40,10 @@ namespace Robutton
             {
                 y = value;
             }
+        }
+        public bool HasSameLocation(Unit other)
+        {
+            return X == other.X && Y == other.Y;
         }
     }
 }

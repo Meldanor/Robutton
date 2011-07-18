@@ -21,11 +21,23 @@ namespace Robutton
                 direction = value;
             }
         }
-        private Coin;
-
-        public Robutton()
+        private Unit coin;
+        public Unit Coin
         {
-            Direction = 
+            get
+            {
+                return coin;
+            }
+            set
+            {
+                coin = value;
+            }
+        }
+
+        public Robutton(int x, int y, int direction)
+            : base(x,y)
+        {
+            Direction = direction;
         }
     }
 }
