@@ -35,8 +35,17 @@ namespace Robutton
 
         public Game(int robuttons, int coins, int xSize, int ySize)
         {
-            this.robuttons = new List<Robutton>(robuttons);
-            this.coins = new List<Unit>(coins);
+            Robuttons = new List<Robutton>(robuttons);
+            Coins = new List<Unit>(coins);
+            this.xSize = xSize;
+            this.ySize = ySize;
+            GenerateGame();
+        }
+
+        public Game(List<Robutton> robuttons, List<Unit> coins, int xSize, int ySize)
+        {
+            Robuttons = robuttons;
+            Coins = coins;
             this.xSize = xSize;
             this.ySize = ySize;
             GenerateGame();
