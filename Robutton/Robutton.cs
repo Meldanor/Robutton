@@ -56,5 +56,21 @@ namespace Robutton
         {
             Direction = direction;
         }
+
+        public void Move()
+        {
+            int x = (int)Math.Round(Math.Cos(ToRad(Direction))) + X;
+            int y = (int)Math.Round(Math.Sin(ToRad(Direction))) + Y;
+        }
+
+        private static double ToDeg(double rad)
+        {
+            return rad * 180.0 / Math.PI;
+        }
+
+        private static double ToRad(double degrees)
+        {
+            return Math.PI / 180 * degrees;
+        }
     }
 }

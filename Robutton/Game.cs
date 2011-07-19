@@ -20,18 +20,49 @@ using System;
 
 namespace Robutton
 {
-    public class Game
+    class Game
     {
-        private List<Robutton> robuttons;
+        private List<Robutton> robuttons;       
+        public  List<Robutton> Robuttons
+        {
+            get
+            {
+                return robuttons;
+            }
+            set
+            {
+                robuttons = value;
+            }
+        }
         private List<Unit> coins;
+        public List<Unit> Coins
+        {
+            get
+            {
+                return coins;
+            }
+            set
+            {
+                coins = value;
+            }
+        }
         private int xSize;
+        public int XSize
+        {
+            get
+            {
+                return xSize;
+            }
+        }
+
         private int ySize;
-
-        public Game()
-            : this(5, 5, 400, 400){}
-
-        public Game(int robuttons, int coins)
-            : this(robuttons,coins,400,400){}
+        public int YSize
+        {
+            get
+            {
+                return ySize;
+            }
+        }
 
         public Game(int robuttons, int coins, int xSize, int ySize)
         {
@@ -50,6 +81,12 @@ namespace Robutton
             this.ySize = ySize;
             GenerateGame();
         }
+
+        public Game()
+            : this(5, 5, 400, 400){}
+
+        public Game(int robuttons, int coins)
+            : this(robuttons,coins,400,400){}
 
         public void GenerateGame()
         {
@@ -99,44 +136,15 @@ namespace Robutton
             }
         }
 
-        public List<Robutton> Robuttons
+        public Unit IsThereAnUnit(int x, int y)
         {
-            get
-            {
-                return robuttons;
-            }
-            set
-            {
-                robuttons = value;
-            }
-        }
-
-        public List<Unit> Coins
-        {
-            get
-            {
-                return coins;
-            }
-            set
-            {
-                coins = value;
-            }
-        }
-
-        public int XSize
-        {
-            get
-            {
-                return xSize;
-            }
-        }
-
-        public int YSize
-        {
-            get
-            {
-                return ySize;
-            }
+            foreach (Robutton robu in Robuttons)
+                if (robu.X == x && robu.Y == y)
+                    return robu;
+            foreach (Unit coin in Coins)
+                if (coin.X == x && coin.Y == y)
+                    return coin;
+            return null;
         }
     }
 }

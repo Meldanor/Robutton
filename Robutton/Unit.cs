@@ -58,9 +58,5 @@ namespace Robutton
                 y = value;
             }
         }
-        public bool HasSameLocation(Unit other)
-        {
-            return X == other.X && Y == other.Y;
-        }
     }
 }
