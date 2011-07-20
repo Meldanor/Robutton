@@ -143,12 +143,12 @@ namespace Robutton
                 Direction = Direction - rand.Next(0, 91);
         }
 
-        private static double ToDeg(double rad)
+        private double ToDeg(double rad)
         {
             return rad * 180.0 / Math.PI;
         }
 
-        private static double ToRad(double degrees)
+        private double ToRad(double degrees)
         {
             return Math.PI / 180 * degrees;
         }

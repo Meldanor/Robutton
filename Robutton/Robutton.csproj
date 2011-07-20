@@ -46,6 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameLoop.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Table.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Table.Designer.cs">
+      <DependentUpon>Table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,6 +69,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Table.resx">
+      <DependentUpon>Table.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

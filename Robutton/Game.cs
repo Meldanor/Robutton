@@ -91,7 +91,7 @@ namespace Robutton
         public void GenerateGame()
         {
             // generate the robuttons
-            for (int i = 0 ; i < Robuttons.Count; ++i) {
+            for (int i = 0 ; i < Robuttons.Capacity; ++i) {
                 int x = new Random().Next(XSize);
                 int y = new Random().Next(YSize);
                 int direction = new Random().Next(360);
@@ -104,7 +104,7 @@ namespace Robutton
                 Robuttons.Add(robu);
             }
             // generate the coin positions
-            for (int i = 0; i < Coins.Count; ++i)
+            for (int i = 0; i < Coins.Capacity; ++i)
             {
                 int x = new Random().Next(XSize);
                 int y = new Random().Next(YSize);
@@ -142,6 +142,12 @@ namespace Robutton
                 return TRESPASS_UPPER_OR_BUTTOM_BORDER;
             else
                 return ON_THE_FIELD;
+        }
+
+        public void Next()
+        {
+            for (int i = 0; i < Robuttons.Count; ++i)
+                Robuttons[i].Move(this);
         }
     }
 }
