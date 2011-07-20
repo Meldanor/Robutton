@@ -90,11 +90,13 @@ namespace Robutton
 
         public void GenerateGame()
         {
+
+            Random rand = new Random();
             // generate the robuttons
             for (int i = 0 ; i < Robuttons.Capacity; ++i) {
-                int x = new Random().Next(XSize);
-                int y = new Random().Next(YSize);
-                int direction = new Random().Next(360);
+                int x = rand.Next(XSize);
+                int y = rand.Next(YSize);
+                int direction = rand.Next(360);
                 Robutton robu = new Robutton(x,y,direction);
                 if (IsThereAnUnit(x, y) != null)
                 {
@@ -106,8 +108,8 @@ namespace Robutton
             // generate the coin positions
             for (int i = 0; i < Coins.Capacity; ++i)
             {
-                int x = new Random().Next(XSize);
-                int y = new Random().Next(YSize);
+                int x = rand.Next(XSize);
+                int y = rand.Next(YSize);
                 Unit coin = new Unit(x, y);
                 // check the other coins position
                 if (IsThereAnUnit(x, y) != null)
