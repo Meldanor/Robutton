@@ -96,13 +96,10 @@ namespace Robutton
                 int y = new Random().Next(YSize);
                 int direction = new Random().Next(360);
                 Robutton robu = new Robutton(x,y,direction);
-                for (int j = 0 ; j < i ; ++j) {
-                    Robutton tempRobu = Robuttons[j];
-                    if (robu.HasSameLocation(tempRobu))
-                    {
-                        --i;
-                        break;
-                    }
+                if (IsThereAnUnit(x, y) != null)
+                {
+                    --i;
+                    continue;
                 }
                 Robuttons.Add(robu);
             }
@@ -113,24 +110,10 @@ namespace Robutton
                 int y = new Random().Next(YSize);
                 Unit coin = new Unit(x, y);
                 // check the other coins position
-                for (int j = 0; j < i; ++j)
+                if (IsThereAnUnit(x, y) != null)
                 {
-                    Unit tempCoin = Coins[j];
-                    if (coin.HasSameLocation(tempCoin))
-                    {
-                        --i;
-                        break;
-                    }
-                }
-                // check the other robuttons position
-                for (int j = 0; j < i; ++j)
-                {
-                    Unit tempRobu = Robuttons[j];
-                    if (coin.HasSameLocation(tempRobu))
-                    {
-                        --i;
-                        break;
-                    }
+                    --i;
+                    continue;
                 }
                 Coins.Add(coin);
             }
@@ -145,6 +128,20 @@ namespace Robutton
                 if (coin.X == x && coin.Y == y)
                     return coin;
             return null;
+        }
+
+        public const int TRESPASS_RIGHT_OR_LEFT_BORDER      = 0;
+        public const int TRESPASS_UPPER_OR_BUTTOM_BORDER    = 1;
+        public const int ON_THE_FIELD                       = 2;
+
+        public int IsOnTheField(int x, int y)
+        {
+            if (x < 0 || x >= XSize)
+                return TRESPASS_RIGHT_OR_LEFT_BORDER;
+            else if (y < 0 || y >= YSize)
+                return TRESPASS_UPPER_OR_BUTTOM_BORDER;
+            else
+                return ON_THE_FIELD;
         }
     }
 }
